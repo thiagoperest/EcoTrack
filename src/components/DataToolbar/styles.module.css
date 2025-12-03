@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 30%;
+}
+
+.input {
+  width: 100%;
+  padding: 8px 12px 8px 36px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #888;
+}
+
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #888;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #14cbf0;
+  color: #fff;
+  font-weight: 600;
+}

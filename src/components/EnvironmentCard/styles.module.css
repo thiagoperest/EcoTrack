@@ -1,0 +1,14 @@
+.activeContainer {
+  padding: 4px 12px;
+  width: 180px;
+  border-radius: 80px;
+  font-size: 0.75rem;
+}
+
+.active {
+  background-color: #13e44e;
+}
+
+.inactive {
+  background-color: #8e8e8e;
+}

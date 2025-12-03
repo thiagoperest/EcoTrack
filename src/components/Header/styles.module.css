@@ -1,0 +1,36 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 50px;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.navLogo img {
+  height: 50px;
+  width: 50px;
+}
+
+.navLinkActive {
+  color: #14cbf0;
+}
+
+.navLinkDefault {
+  color: inherit;
+}
+
+.navMenu {
+  display: flex;
+  gap: 28px;
+}
