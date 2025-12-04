@@ -1,14 +1,54 @@
+.container {
+  max-width: 330px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  font-size: 0.813rem;
+  font-weight: bold;
+}
+
 .activeContainer {
   padding: 4px 12px;
-  width: 180px;
+  width: 80%;
   border-radius: 80px;
   font-size: 0.75rem;
 }
 
 .active {
-  background-color: #13e44e;
+  background-color: #c6f7cf;
 }
 
 .inactive {
-  background-color: #8e8e8e;
+  background-color: #e2e2e2;
+}
+
+.conditionContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  margin-top: 8px;
+}
+
+.good {
+  color: #10b981;
+}
+
+.moderate {
+  color: #f59e0b;
+}
+
+.critical {
+  color: #ef4444;
+}
+
+.lastUpdateContainer {
+  margin-top: 8px;
+  font-size: 0.813rem;
 }

@@ -1,16 +1,16 @@
-import { StarBorder } from "@mui/icons-material";
-import { Star } from "@mui/icons-material";
-import { IconButton } from "@mui/material";
-import { useState } from "react";
+import {StarBorder, Star, FiberManualRecord} from "@mui/icons-material";
+import {IconButton} from "@mui/material";
+import {useState} from "react";
 import styles from "./styles.module.css";
+import {formatTimeAgo} from "../../utils/formatDate.js";
 
 export default function EnvironmentCard({
   id,
   location,
   condition,
+  summary,
   isActive,
   lastUpdate,
-  description,
 }) {
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -18,10 +18,26 @@ export default function EnvironmentCard({
     setIsFavorite(!isFavorite);
   };
 
+  const getConditionClass = () => {
+    if (condition === "Boa") return styles.good;
+    if (condition === "Moderada") return styles.moderate;
+    if (condition === "Crítica") return styles.critical;
+    return styles.good;
+  };
+
+  const getConditionText = () => {
+    if (condition === "Boa") return "Condição Boa";
+    if (condition === "Moderada") return "Condição Moderada";
+    if (condition === "Crítica") return "Condição Crítica";
+    return "Condição Boa";
+  };
+
   return (
-    <section>
-      <div>
-        <span>{location}</span>
+    <section className={styles.container}>
+      <div className={styles.titleContainer}>
+        <span>
+          ID: {id} - {location}
+        </span>
 
         <IconButton
           onClick={handleToggle}
@@ -31,12 +47,26 @@ export default function EnvironmentCard({
           {isFavorite ? <Star /> : <StarBorder />}
         </IconButton>
       </div>
+
       <div
         className={`${styles.activeContainer} ${
           isActive ? styles.active : styles.inactive
         }`}
       >
-        <span>{isActive ? "Ativo" : "Inátivo"}</span>
+        <span>{isActive ? "Ativo" : "Inativo"}</span>
+      </div>
+
+      <div className={styles.conditionContainer}>
+        <FiberManualRecord
+          className={getConditionClass()}
+          sx={{fontSize: 14}}
+        />
+        <span className={getConditionClass()}>{getConditionText()}</span>
+      </div>
+
+      <div className={styles.lastUpdateContainer}>
+        <p>Última atualização: {formatTimeAgo(lastUpdate)}</p>
+        <p>{summary}</p>
       </div>
     </section>
   );
