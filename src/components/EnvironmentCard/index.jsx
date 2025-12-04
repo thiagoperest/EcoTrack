@@ -1,6 +1,7 @@
 import {StarBorder, Star, FiberManualRecord} from "@mui/icons-material";
 import {IconButton} from "@mui/material";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import styles from "./styles.module.css";
 import {formatTimeAgo} from "../../utils/formatDate.js";
 
@@ -13,9 +14,16 @@ export default function EnvironmentCard({
   lastUpdate,
 }) {
   const [isFavorite, setIsFavorite] = useState(false);
+  const navigate = useNavigate();
 
-  const handleToggle = () => {
+  const handleToggle = (e) => {
+    e.stopPropagation();
     setIsFavorite(!isFavorite);
+  };
+
+  // TODO ajustar para rota de detalhes
+  const handleCardClick = () => {
+    navigate(`/favorites`);
   };
 
   const getConditionClass = () => {
@@ -33,7 +41,7 @@ export default function EnvironmentCard({
   };
 
   return (
-    <section className={styles.container}>
+    <div className={styles.container} onClick={handleCardClick}>
       <div className={styles.titleContainer}>
         <span>
           ID: {id} - {location}
@@ -68,6 +76,6 @@ export default function EnvironmentCard({
         <p>Última atualização: {formatTimeAgo(lastUpdate)}</p>
         <p>{summary}</p>
       </div>
-    </section>
+    </div>
   );
 }
