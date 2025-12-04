@@ -1,10 +1,10 @@
-import Home from "../pages/Home";
+import Dashboard from "../pages/Dashboard";
 import NotFound from "../pages/NotFound";
 
 export const AppRoutes = [
   {
     path: "/",
-    element: <Home />,
+    element: <Dashboard />,
   },
   {
     path: "*",

@@ -1,7 +1,7 @@
 import DataToolbar from "../../components/DataToolbar";
 import EnvironmentList from "../../components/EnvironmentList/index.jsx";
 
-export default function Home() {
+export default function Dashboard() {
   // TODO remover mock ao implementar classe de services
   const mockDados = [
     {
