@@ -20,3 +20,11 @@ export function formatTimeAgo(dateString) {
   const diffInYears = Math.floor(diffInMonths / 12);
   return `${diffInYears} ${diffInYears === 1 ? "ano" : "anos"} atrás`;
 }
+
+export function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
