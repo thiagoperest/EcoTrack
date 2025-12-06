@@ -42,6 +42,165 @@
           "type": "Temperatura"
         }
       ]
+    },
+    {
+      "id": 3,
+      "name": "Estação Florestal - Serra da Cantareira",
+      "location": "Parque Estadual da Cantareira - São Paulo, SP",
+      "condition": "Boa",
+      "summary": "Qualidade do ar excelente",
+      "isActive": true,
+      "startDate": "2024-03-20",
+      "lastUpdate": "2024-12-05T10:15:00Z",
+      "description": "Monitoramento ambiental em área de preservação, com foco em qualidade do ar, biodiversidade e impactos climáticos.",
+      "isFavorite": true,
+      "sensors": [
+        {
+          "id": "sensor-4",
+          "name": "Sensor de Qualidade do Ar 02",
+          "type": "Qualidade do Ar"
+        },
+        {
+          "id": "sensor-5",
+          "name": "Sensor de Umidade do Solo",
+          "type": "Umidade"
+        },
+        {
+          "id": "sensor-6",
+          "name": "Sensor de Temperatura e Umidade",
+          "type": "Clima"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Estação Costeira - Praia de Copacabana",
+      "location": "Copacabana - Rio de Janeiro, RJ",
+      "condition": "Moderada",
+      "summary": "Poluição marinha detectada",
+      "isActive": true,
+      "startDate": "2024-04-05",
+      "lastUpdate": "2024-12-04T18:30:00Z",
+      "description": "Monitoramento da qualidade da água do mar, com análise de microplásticos, pH e temperatura oceânica.",
+      "isFavorite": false,
+      "sensors": [
+        {
+          "id": "sensor-7",
+          "name": "Sensor de pH da Água",
+          "type": "Qualidade da Água"
+        },
+        {
+          "id": "sensor-8",
+          "name": "Sensor de Temperatura da Água",
+          "type": "Temperatura"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Estação Industrial - Zona Norte",
+      "location": "Distrito Industrial - Belo Horizonte, MG",
+      "condition": "Crítica",
+      "summary": "Altos níveis de poluição do ar",
+      "isActive": true,
+      "startDate": "2024-05-12",
+      "lastUpdate": "2024-12-06T08:00:00Z",
+      "description": "Monitoramento de emissões industriais, com foco em material particulado, gases tóxicos e compostos orgânicos voláteis.",
+      "isFavorite": false,
+      "sensors": [
+        {
+          "id": "sensor-9",
+          "name": "Sensor de PM2.5",
+          "type": "Qualidade do Ar"
+        },
+        {
+          "id": "sensor-10",
+          "name": "Sensor de CO2",
+          "type": "Gases"
+        },
+        {
+          "id": "sensor-11",
+          "name": "Sensor de Compostos Orgânicos",
+          "type": "Químicos"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Estação Agrícola - Vale do Paraíba",
+      "location": "Zona Rural - Taubaté, SP",
+      "condition": "Boa",
+      "summary": "Condições favoráveis",
+      "isActive": false,
+      "startDate": "2024-06-18",
+      "lastUpdate": "2024-11-20T12:00:00Z",
+      "description": "Monitoramento de solo e água para agricultura sustentável, com análise de nutrientes e contaminantes.",
+      "isFavorite": true,
+      "sensors": [
+        {
+          "id": "sensor-12",
+          "name": "Sensor de Nutrientes do Solo",
+          "type": "Solo"
+        },
+        {
+          "id": "sensor-13",
+          "name": "Sensor de Irrigação",
+          "type": "Água"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Estação Urbana - Centro Histórico",
+      "location": "Centro Histórico - Salvador, BA",
+      "condition": "Moderada",
+      "summary": "Poluição sonora elevada",
+      "isActive": true,
+      "startDate": "2024-07-22",
+      "lastUpdate": "2024-12-05T20:45:00Z",
+      "description": "Monitoramento de poluição sonora e qualidade do ar em área de grande circulação turística.",
+      "isFavorite": false,
+      "sensors": [
+        {
+          "id": "sensor-14",
+          "name": "Sensor de Ruído Ambiental",
+          "type": "Poluição Sonora"
+        },
+        {
+          "id": "sensor-15",
+          "name": "Sensor de Qualidade do Ar 03",
+          "type": "Qualidade do Ar"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Estação Pantanal - Mato Grosso",
+      "location": "Reserva Natural - Poconé, MT",
+      "condition": "Boa",
+      "summary": "Ecossistema preservado",
+      "isActive": true,
+      "startDate": "2024-08-10",
+      "lastUpdate": "2024-12-06T06:30:00Z",
+      "description": "Monitoramento de biodiversidade e qualidade da água no Pantanal, com foco em preservação ambiental.",
+      "isFavorite": true,
+      "sensors": [
+        {
+          "id": "sensor-16",
+          "name": "Sensor de Qualidade da Água 02",
+          "type": "Qualidade da Água"
+        },
+        {
+          "id": "sensor-17",
+          "name": "Sensor de Biodiversidade",
+          "type": "Fauna"
+        },
+        {
+          "id": "sensor-18",
+          "name": "Sensor de Nível de Água",
+          "type": "Hidrologia"
+        }
+      ]
     }
   ]
 }
