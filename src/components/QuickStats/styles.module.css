@@ -1,0 +1,24 @@
+.container {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    align-self: flex-start;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: #f4f3f3;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.statusContent {
+    font-weight: bold;
+}
+
+.statusContentInactive {
+    color: #ef4444
+}

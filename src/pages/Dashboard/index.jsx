@@ -4,6 +4,8 @@ import {useEffect, useState} from "react";
 import {fetchMonitoringData} from "../../service/monitoringService.js";
 import Loading from "../../components/Loading/index.jsx";
 import PopUpAlert from "../../components/PopUpAlert/index.jsx";
+import QuickStats from "../../components/QuickStats/index.jsx";
+import styles from "./styles.module.css";
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
@@ -26,6 +28,15 @@ export default function Dashboard() {
     setError(null);
   };
 
+  const calculateStats = () => {
+    return {
+      total: data.length,
+      active: data.filter((station) => station.isActive).length,
+      inactive: data.filter((station) => !station.isActive).length,
+      favorites: data.filter((station) => station.isFavorite).length,
+    };
+  };
+
   if (loading) return <Loading />;
 
   return (
@@ -39,7 +50,10 @@ export default function Dashboard() {
       )}
 
       <DataToolbar />
-      <EnvironmentList monitoringData={data} />
+      <div className={styles.containerContent}>
+        <EnvironmentList monitoringData={data} />
+        <QuickStats {...calculateStats()} />
+      </div>
     </section>
   );
 }
