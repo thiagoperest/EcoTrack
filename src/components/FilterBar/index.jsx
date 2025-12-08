@@ -1,8 +1,13 @@
 import AddIcon from "@mui/icons-material/Add";
 import SearchIcon from "@mui/icons-material/Search";
+import SortControls from "../SortControls";
 import styles from "./styles.module.css";
 
-export default function DataToolbar() {
+export default function FilterBar({onSearch, onSort}) {
+  const handleSearchChange = (e) => {
+    onSearch(e.target.value);
+  };
+
   return (
     <section className={styles.container}>
       <div className={styles.inputWrapper}>
@@ -11,20 +16,12 @@ export default function DataToolbar() {
           type="text"
           placeholder="Buscar por localização, condição..."
           className={styles.input}
+          onChange={handleSearchChange}
         />
       </div>
 
       <div className={styles.content}>
-        <select name="" id="" className={styles.select}>
-          <option value="">Ordenar por: Nome</option>
-          <option value="">Ordenar por: Localização</option>
-          <option value="">Ordenar por: Condição</option>
-          <option value="">Ordenar por: Ativo</option>
-          <option value="">Ordenar por: Data Inicial</option>
-          <option value="">Ordenar por: Data Final</option>
-          <option value="">Ordenar por: Descrição</option>
-          <option value="">Ordenar por: Favoritos</option>
-        </select>
+        <SortControls onSort={onSort} />
 
         <button className={styles.buttonContainer}>
           <AddIcon />

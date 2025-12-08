@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import styles from "./styles.module.css";
 
 export default function Header() {
@@ -16,8 +16,8 @@ export default function Header() {
 
           <section className={styles.navMenu}>
             <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
+              to="/"
+              className={({isActive}) =>
                 isActive ? styles.navLinkActive : styles.navLinkDefault
               }
             >
@@ -26,7 +26,7 @@ export default function Header() {
 
             <NavLink
               to="/favorite"
-              className={({ isActive }) =>
+              className={({isActive}) =>
                 isActive ? styles.navLinkActive : styles.navLinkDefault
               }
             >
@@ -35,7 +35,7 @@ export default function Header() {
 
             <NavLink
               to="/config"
-              className={({ isActive }) =>
+              className={({isActive}) =>
                 isActive ? styles.navLinkActive : styles.navLinkDefault
               }
             >

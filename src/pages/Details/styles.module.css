@@ -1,0 +1,105 @@
+.backButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: #374151;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.backButton:hover {
+    color: #14cbf0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 20px;
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 1.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+}
+
+.statusContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.conditionContainer {
+    border-radius: 80px;
+    padding: 4px 12px;
+}
+
+.good {
+    background-color: #c6f7cf;
+    color: #04885c;
+}
+
+.moderate {
+    background-color: #ffe9c4;
+    color: #f09700;
+}
+
+.critical {
+    background-color: #f4aaaa;
+    color: #fc2e2e;
+}
+
+.isActiveContainer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.active {
+    color: #10b981;
+}
+
+.inactive {
+    color: #e2e2e2;
+}
+
+.sensorContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+    margin-top: 12px;
+}
+
+.sensorContent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #e9e9e9;
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+.sensorColor {
+    color: #14cbf0;
+}

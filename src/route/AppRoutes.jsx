@@ -1,10 +1,19 @@
-import Home from "../pages/Home";
+import Dashboard from "../pages/Dashboard";
+import Details from "../pages/Details";
 import NotFound from "../pages/NotFound";
 
 export const AppRoutes = [
   {
     path: "/",
-    element: <Home />,
+    element: <Dashboard />,
+  },
+  {
+    path: "/details/:id",
+    element: <Details />,
+  },
+  {
+    path: "/favorite",
+    element: <Dashboard showOnlyFavorites={true} />,
   },
   {
     path: "*",

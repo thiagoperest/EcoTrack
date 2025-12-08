@@ -1,0 +1,16 @@
+.listContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    flex: 1;
+}
+
+.listWrapper {
+    flex: 1;
+}
+
+.listContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
