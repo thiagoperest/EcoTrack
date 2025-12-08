@@ -1,6 +1,6 @@
 import FilterBar from "../../components/FilterBar";
 import EnvironmentList from "../../components/EnvironmentList/index.jsx";
-import {useEffect, useState} from "react";
+import {useEffect, useState, useMemo} from "react";
 import {fetchMonitoringData} from "../../service/monitoringService.js";
 import Loading from "../../components/Loading/index.jsx";
 import PopUpAlert from "../../components/PopUpAlert/index.jsx";
@@ -14,6 +14,8 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortBy, setSortBy] = useState("");
 
   useEffect(() => {
     fetchMonitoringData()
@@ -27,6 +29,42 @@ export default function Dashboard() {
       });
   }, []);
 
+  const filteredData = useMemo(() => {
+    let result = [...data];
+
+    if (searchTerm) {
+      result = result.filter(
+        (station) =>
+          station.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          station.condition.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          station.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          station.summary.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    if (sortBy) {
+      result.sort((a, b) => {
+        if (
+          sortBy === "name" ||
+          sortBy === "location" ||
+          sortBy === "condition" ||
+          sortBy === "summary"
+        ) {
+          return a[sortBy].localeCompare(b[sortBy]);
+        }
+        if (sortBy === "isActive" || sortBy === "isFavorite") {
+          return b[sortBy] - a[sortBy];
+        }
+        if (sortBy === "startDate" || sortBy === "lastUpdate") {
+          return new Date(b[sortBy]) - new Date(a[sortBy]);
+        }
+        return 0;
+      });
+    }
+
+    return result;
+  }, [data, searchTerm, sortBy]);
+
   const handleCloseError = () => {
     setError(null);
   };
@@ -36,22 +74,32 @@ export default function Dashboard() {
     window.scrollTo({top: 0, behavior: "smooth"});
   };
 
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+    setCurrentPage(1);
+  };
+
+  const handleSort = (sort) => {
+    setSortBy(sort);
+    setCurrentPage(1);
+  };
+
   const calculateStats = () => {
     return {
-      total: data.length,
-      active: data.filter((station) => station.isActive).length,
-      inactive: data.filter((station) => !station.isActive).length,
-      favorites: data.filter((station) => station.isFavorite).length,
+      total: filteredData.length,
+      active: filteredData.filter((station) => station.isActive).length,
+      inactive: filteredData.filter((station) => !station.isActive).length,
+      favorites: filteredData.filter((station) => station.isFavorite).length,
     };
   };
 
   const getPaginatedData = () => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    return data.slice(startIndex, endIndex);
+    return filteredData.slice(startIndex, endIndex);
   };
 
-  const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
 
   if (loading) return <Loading />;
 
@@ -65,7 +113,7 @@ export default function Dashboard() {
         />
       )}
 
-      <FilterBar />
+      <FilterBar onSearch={handleSearch} onSort={handleSort} />
       <div className={styles.containerContent}>
         <EnvironmentList
           monitoringData={getPaginatedData()}
