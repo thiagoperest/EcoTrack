@@ -1,4 +1,4 @@
-import DataToolbar from "../../components/DataToolbar";
+import FilterBar from "../../components/FilterBar";
 import EnvironmentList from "../../components/EnvironmentList/index.jsx";
 import {useEffect, useState} from "react";
 import {fetchMonitoringData} from "../../service/monitoringService.js";
@@ -65,7 +65,7 @@ export default function Dashboard() {
         />
       )}
 
-      <DataToolbar />
+      <FilterBar />
       <div className={styles.containerContent}>
         <EnvironmentList
           monitoringData={getPaginatedData()}

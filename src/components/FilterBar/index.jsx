@@ -2,7 +2,7 @@ import AddIcon from "@mui/icons-material/Add";
 import SearchIcon from "@mui/icons-material/Search";
 import styles from "./styles.module.css";
 
-export default function DataToolbar() {
+export default function FilterBar() {
   return (
     <section className={styles.container}>
       <div className={styles.inputWrapper}>
