@@ -12,6 +12,10 @@ export const AppRoutes = [
     element: <Details />,
   },
   {
+    path: "/favorite",
+    element: <Dashboard showOnlyFavorites={true} />,
+  },
+  {
     path: "*",
     element: <NotFound />,
   },

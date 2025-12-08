@@ -10,7 +10,7 @@
       "startDate": "2024-01-15",
       "lastUpdate": "2024-06-10T14:30:00Z",
       "description": "Monitoramento da qualidade do ar na área central do parque Ibirapuera, focado em partículas finas (PM2.5) e gases poluentes.",
-      "isFavorite": false,
+      "isFavorite": true,
       "sensors": [
         {
           "id": "sensor-1",
@@ -82,7 +82,7 @@
       "startDate": "2024-04-05",
       "lastUpdate": "2024-12-04T18:30:00Z",
       "description": "Monitoramento da qualidade da água do mar, com análise de microplásticos, pH e temperatura oceânica.",
-      "isFavorite": false,
+      "isFavorite": true,
       "sensors": [
         {
           "id": "sensor-7",

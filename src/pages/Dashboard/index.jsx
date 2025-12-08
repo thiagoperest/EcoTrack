@@ -9,7 +9,7 @@ import styles from "./styles.module.css";
 
 const ITEMS_PER_PAGE = 6;
 
-export default function Dashboard() {
+export default function Dashboard({showOnlyFavorites = false}) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -20,14 +20,16 @@ export default function Dashboard() {
   useEffect(() => {
     fetchMonitoringData()
       .then((stations) => {
-        setData(stations);
+        setData(
+          showOnlyFavorites ? stations.filter((s) => s.isFavorite) : stations
+        );
         setLoading(false);
       })
       .catch((err) => {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [showOnlyFavorites]);
 
   const filteredData = useMemo(() => {
     let result = [...data];
@@ -85,11 +87,14 @@ export default function Dashboard() {
   };
 
   const handleFavoriteUpdate = (id, isFavorite) => {
-    setData((prevData) =>
-      prevData.map((station) =>
+    setData((prevData) => {
+      const updatedData = prevData.map((station) =>
         station.id === id ? {...station, isFavorite} : station
-      )
-    );
+      );
+      return showOnlyFavorites
+        ? updatedData.filter((station) => station.isFavorite)
+        : updatedData;
+    });
   };
 
   const calculateStats = () => {
@@ -123,13 +128,19 @@ export default function Dashboard() {
 
       <FilterBar onSearch={handleSearch} onSort={handleSort} />
       <div className={styles.containerContent}>
-        <EnvironmentList
-          monitoringData={getPaginatedData()}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-          onFavoriteUpdate={handleFavoriteUpdate}
-        />
+        {showOnlyFavorites && filteredData.length === 0 ? (
+          <div className={styles.noFavoritesContainer}>
+            <h2 className={styles.title}>Nenhum favorito encontrado!</h2>
+          </div>
+        ) : (
+          <EnvironmentList
+            monitoringData={getPaginatedData()}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            onFavoriteUpdate={handleFavoriteUpdate}
+          />
+        )}
         <QuickStats {...calculateStats()} />
       </div>
     </section>
