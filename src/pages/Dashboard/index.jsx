@@ -84,6 +84,14 @@ export default function Dashboard() {
     setCurrentPage(1);
   };
 
+  const handleFavoriteUpdate = (id, isFavorite) => {
+    setData((prevData) =>
+      prevData.map((station) =>
+        station.id === id ? {...station, isFavorite} : station
+      )
+    );
+  };
+
   const calculateStats = () => {
     return {
       total: filteredData.length,
@@ -120,6 +128,7 @@ export default function Dashboard() {
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
+          onFavoriteUpdate={handleFavoriteUpdate}
         />
         <QuickStats {...calculateStats()} />
       </div>

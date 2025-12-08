@@ -1,6 +1,9 @@
 import {useState, useEffect} from "react";
 import {useParams, useNavigate} from "react-router-dom";
-import {fetchStationById} from "../../service/monitoringService.js";
+import {
+  fetchStationById,
+  updateStationFavorite,
+} from "../../service/monitoringService.js";
 import {formatDate} from "../../utils/formatDate.js";
 import {
   ArrowBack,
@@ -19,6 +22,7 @@ export default function Details() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   useEffect(() => {
     fetchStationById(id)
@@ -38,7 +42,21 @@ export default function Details() {
   };
 
   const handleToggle = () => {
-    setIsFavorite(!isFavorite);
+    if (isUpdating) return;
+
+    const newFavoriteState = !isFavorite;
+    setIsFavorite(newFavoriteState);
+    setIsUpdating(true);
+
+    updateStationFavorite(id, newFavoriteState)
+      .then(() => {
+        setIsUpdating(false);
+      })
+      .catch((error) => {
+        console.error("Erro ao atualizar favorito:", error);
+        setIsFavorite(!newFavoriteState);
+        setIsUpdating(false);
+      });
   };
 
   const getConditionClass = () => {
@@ -80,6 +98,7 @@ export default function Details() {
             onClick={handleToggle}
             color={isFavorite ? "warning" : "default"}
             aria-label="favoritar"
+            disabled={isUpdating}
           >
             {isFavorite ? <Star /> : <StarBorder />}
           </IconButton>

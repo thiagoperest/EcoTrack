@@ -7,12 +7,17 @@ export default function EnvironmentList({
   currentPage,
   totalPages,
   onPageChange,
+  onFavoriteUpdate,
 }) {
   return (
     <section className={styles.listWrapper}>
       <div className={styles.listContainer}>
         {monitoringData.map((data) => (
-          <EnvironmentCard key={data.id} {...data} />
+          <EnvironmentCard
+            key={data.id}
+            {...data}
+            onFavoriteUpdate={onFavoriteUpdate}
+          />
         ))}
       </div>
       <PaginationComponent

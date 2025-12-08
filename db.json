@@ -1,7 +1,7 @@
 {
   "stations": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Estação Central - Parque Ibirapuera",
       "location": "Parque Ibirapuera - São Paulo, SP",
       "condition": "Boa",
@@ -10,7 +10,7 @@
       "startDate": "2024-01-15",
       "lastUpdate": "2024-06-10T14:30:00Z",
       "description": "Monitoramento da qualidade do ar na área central do parque Ibirapuera, focado em partículas finas (PM2.5) e gases poluentes.",
-      "isFavorite": true,
+      "isFavorite": false,
       "sensors": [
         {
           "id": "sensor-1",
@@ -25,7 +25,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Posto Avançado - Margem do Rio",
       "location": "Margem do Rio Negro - Manaus, AM",
       "condition": "Crítica",
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Estação Florestal - Serra da Cantareira",
       "location": "Parque Estadual da Cantareira - São Paulo, SP",
       "condition": "Boa",
@@ -53,7 +53,7 @@
       "startDate": "2024-03-20",
       "lastUpdate": "2024-12-05T10:15:00Z",
       "description": "Monitoramento ambiental em área de preservação, com foco em qualidade do ar, biodiversidade e impactos climáticos.",
-      "isFavorite": true,
+      "isFavorite": false,
       "sensors": [
         {
           "id": "sensor-4",
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Estação Costeira - Praia de Copacabana",
       "location": "Copacabana - Rio de Janeiro, RJ",
       "condition": "Moderada",
@@ -97,7 +97,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Estação Industrial - Zona Norte",
       "location": "Distrito Industrial - Belo Horizonte, MG",
       "condition": "Crítica",
@@ -126,7 +126,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Estação Agrícola - Vale do Paraíba",
       "location": "Zona Rural - Taubaté, SP",
       "condition": "Boa",
@@ -135,7 +135,7 @@
       "startDate": "2024-06-18",
       "lastUpdate": "2024-11-20T12:00:00Z",
       "description": "Monitoramento de solo e água para agricultura sustentável, com análise de nutrientes e contaminantes.",
-      "isFavorite": true,
+      "isFavorite": false,
       "sensors": [
         {
           "id": "sensor-12",
@@ -150,7 +150,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Estação Urbana - Centro Histórico",
       "location": "Centro Histórico - Salvador, BA",
       "condition": "Moderada",
@@ -174,7 +174,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Estação Pantanal - Mato Grosso",
       "location": "Reserva Natural - Poconé, MT",
       "condition": "Boa",
@@ -183,7 +183,7 @@
       "startDate": "2024-08-10",
       "lastUpdate": "2024-12-06T06:30:00Z",
       "description": "Monitoramento de biodiversidade e qualidade da água no Pantanal, com foco em preservação ambiental.",
-      "isFavorite": true,
+      "isFavorite": false,
       "sensors": [
         {
           "id": "sensor-16",

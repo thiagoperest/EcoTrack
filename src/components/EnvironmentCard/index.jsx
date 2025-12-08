@@ -3,6 +3,7 @@ import {IconButton} from "@mui/material";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {formatTimeAgo} from "../../utils/formatDate.js";
+import {updateStationFavorite} from "../../service/monitoringService.js";
 import styles from "./styles.module.css";
 
 export default function EnvironmentCard({
@@ -13,13 +14,33 @@ export default function EnvironmentCard({
   isActive,
   lastUpdate,
   isFavorite: initialFavorite,
+  onFavoriteUpdate,
 }) {
   const [isFavorite, setIsFavorite] = useState(initialFavorite);
+  const [isUpdating, setIsUpdating] = useState(false);
   const navigate = useNavigate();
 
   const handleToggle = (e) => {
     e.stopPropagation();
-    setIsFavorite(!isFavorite);
+
+    if (isUpdating) return;
+
+    const newFavoriteState = !isFavorite;
+    setIsFavorite(newFavoriteState);
+    setIsUpdating(true);
+
+    updateStationFavorite(id, newFavoriteState)
+      .then(() => {
+        setIsUpdating(false);
+        if (onFavoriteUpdate) {
+          onFavoriteUpdate(id, newFavoriteState);
+        }
+      })
+      .catch((error) => {
+        console.error("Erro ao atualizar favorito:", error);
+        setIsFavorite(!newFavoriteState);
+        setIsUpdating(false);
+      });
   };
 
   const handleCardClick = () => {
@@ -51,6 +72,7 @@ export default function EnvironmentCard({
           onClick={handleToggle}
           color={isFavorite ? "warning" : "default"}
           aria-label="favoritar"
+          disabled={isUpdating}
         >
           {isFavorite ? <Star /> : <StarBorder />}
         </IconButton>
